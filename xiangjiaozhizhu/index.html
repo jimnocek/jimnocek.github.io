@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香蕉蜘蛛-生物百科与生态观察指南</title>
+    <meta name="description" content="香蕉蜘蛛百科网站，提供巴西游走蛛的形态特征、生活习性、毒性分析及防虫建议。包含生态观察指南、安全警示及全球分布数据。">
+    <meta name="keywords" content="香蕉蜘蛛,巴西游走蛛,游走蛛科,蜘蛛毒液,生物科普,农业害虫,热带生态">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2d5a27; /* 森林绿 */
+            --accent-color: #d4a017; /* 金黄色 */
+            --text-dark: #1a1a1a;
+            --text-gray: #555;
+            --bg-light: #f9fbf9;
+            --bg-white: #ffffff;
+            --danger: #c0392b;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            font-size: 0.8em;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);
+            padding: 4rem 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(45, 90, 39, 0.1);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* 主要内容区 */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* 特征卡片 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* 科学分类与习性 */
+        .taxonomy-section {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 4rem;
+        }
+
+        .taxonomy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        .taxonomy-table th, .taxonomy-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .taxonomy-table th {
+            background-color: #f8f8f8;
+            color: var(--primary-color);
+            font-weight: 600;
+            width: 30%;
+        }
+
+        .taxonomy-table td {
+            color: var(--text-dark);
+        }
+
+        /* 危害与安全 */
+        .warning-section {
+            background-color: #fff5f5;
+            border: 1px solid #ffebee;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .warning-header {
+            color: var(--danger);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .warning-list li::before {
+            content: "⚠";
+            position: absolute;
+            left: 0;
+            color: var(--danger);
+        }
+
+        /* 生态分布 */
+        .distribution-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .map-placeholder {
+            background-color: #e0e0e0;
+            height: 300px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 模拟地图上的点 */
+        .map-dot {
+            width: 12px;
+            height: 12px;
+            background-color: var(--danger);
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 0 4px rgba(192, 57, 43, 0.2);
+        }
+
+        .distribution-info ul li {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--accent-color);
+        }
+
+        .distribution-info ul li strong {
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        /* FAQ */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--bg-white);
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 1.2rem;
+            color: var(--text-gray);
+            background-color: #fafafa;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.2rem;
+            max-height: 500px;
+            border-top: 1px solid #eee;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #95a5a6;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .distribution-section {
+                grid-template-columns: 1fr;
+            }
+
+            .taxonomy-table {
+                font-size: 0.9rem;
+            }
+            
+            .taxonomy-table th, .taxonomy-table td {
+                padding: 0.8rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">香蕉蜘蛛 <span>百科指南</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#features">形态特征</a></li>
+                    <li><a href="#habits">生活习性</a></li>
+                    <li><a href="#safety">安全警示</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>巴西游走蛛：热带雨林中的致命猎手</h1>
+            <p>香蕉蜘蛛是游走蛛科中著名的物种，以其独特的警戒色和潜在的毒性闻名。本文将带您深入了解其生物学特征、分布区域及安全防护知识。</p>
+            <div class="hero-tags">
+                <span class="tag">游走蛛科</span>
+                <span class="tag">热带生物</span>
+                <span class="tag">农业害虫</span>
+                <span class="tag">生物科普</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- 特征概览 -->
+        <section id="features">
+            <h2 class="section-title">主要特征</h2>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <span class="feature-icon">🕷️</span>
+                    <h3>警戒色伪装</h3>
+                    <p>香蕉蜘蛛最显著的特征是其身体上的黄黑相间条纹。这种高对比度的配色在自然界中具有警示作用，警告捕食者其不可食用。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>快速游走习性</h3>
+                    <p>如其名，它们并非结网捕食，而是像其他游走蛛一样，在地面或植物叶片间快速奔跑，主动追捕猎物。</p>
+                </article>
+                <article class="feature-card">
+                    <span class="feature-icon">📏</span>
+                    <h3>体型差异</h3>
+                    <p>雌性体型通常较大，展足可达4-5厘米；雄性体型较小，颜色更为鲜艳，通常呈红褐色，以便在求偶或寻找配偶时吸引雌性。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 科学分类 -->
+        <section id="habits" class="taxonomy-section">
+            <h2 class="section-title">科学分类与习性</h2>
+            <p>香蕉蜘蛛属于节肢动物门、蛛形纲、蜘蛛目、游走蛛科。它们具有高度的领地意识，通常独居。</p>
+            <table class="taxonomy-table">
+                <tbody>
+                    <tr>
+                        <th>分类层级</th>
+                        <th>详细信息</th>
+                    </tr>
+                    <tr>
+                        <td>目</td>
+                        <td>蜘蛛目</td>
+                    </tr>
+                    <tr>
+                        <td>科</td>
+                        <td>游走蛛科</td>
+                    </tr>
+                    <tr>
+                        <td>属</td>
+                        <td>泛游蛛属</td>
+                    </tr>
+                    <tr>
+                        <td>主要栖息地</td>
+                        <td>热带雨林、农业作物区（香蕉、玉米等）、人类居住区周边</td>
+                    </tr>
+                    <tr>
+                        <td>捕食方式</td>
+                        <td>伏击或主动追逐，以昆虫、小型节肢动物为食</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 安全警示 -->
+        <section id="safety" class="warning-section">
+            <div class="warning-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                安全警示与应对
+            </div>
+            <p>虽然大多数蜘蛛咬伤是无害的，但香蕉蜘蛛（特别是巴西游走蛛）的毒液具有神经毒素特性。了解如何应对至关重要。</p>
+            <ul class="warning-list">
+                <li><strong>避免直接接触：</strong>在处理香蕉、植物或清理杂草时，请务必佩戴厚手套，并仔细检查缝隙。</li>
+                <li><strong>紧急处理：</strong>若被咬伤，保持冷静，切勿用嘴吸出毒液。立即用肥皂和水清洗伤口，并尽快前往医院就医。</li>
+                <li><strong>环境控制：</strong>在种植香蕉等热带作物时，保持田间清洁，减少枯叶堆积，可显著降低蜘蛛栖息密度。</li>
+            </ul>
+        </section>
+
+        <!-- 分布与生态 -->
+        <section id="distribution">
+            <h2 class="section-title">分布与生态价值</h2>
+            <div class="distribution-section">
+                <div class="map-placeholder">
+                    <div class="map-dot" style="top: 40%; left: 30%;" title="南美洲"></div>
+                    <div class="map-dot" style="top: 60%; left: 50%;" title="中美洲"></div>
+                    <div class="map-dot" style="top: 80%; left: 20%;" title="加勒比地区"></div>
+                    <span style="position: relative; z-index: 2; background: rgba(255,255,255,0.8); padding: 0.5rem 1rem; border-radius: 4px;">全球分布示意图</span>
+                </div>
+                <div class="distribution-info">
+                    <ul>
+                        <li><strong>原产地：</strong>主要分布在南美洲（如巴西、阿根廷）和中美洲地区。</li>
+                        <li><strong>入侵扩散：</strong>随着全球贸易和植物运输，已扩散至特立尼达、巴巴多斯等加勒比岛屿，甚至传入非洲和亚洲部分地区。</li>
+                        <li><strong>生态角色：</strong>作为捕食者，它们在控制农业害虫数量方面发挥着一定的自然控制作用，但也对本地小型节肢动物构成威胁。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq-section">
+            <h2 class="section-title">常见问题 (FAQ)</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">香蕉蜘蛛真的有毒吗？</div>
+                <div class="faq-answer">
+                    <p>是的，香蕉蜘蛛（特别是巴西游走蛛）具有毒性。其毒液对人类可能引起局部疼痛、红肿，严重时可能导致全身症状，但致死率通常较低。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">它们会攻击人类吗？</div>
+                <div class="faq-answer">
+                    <p>它们通常是胆小的猎手，更倾向于逃跑。只有在感到受到威胁、保护卵囊或被误踩踏时，才会发起攻击。攻击性通常随体型增大而增强。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何在家庭环境中识别它们？</div>
+                <div class="faq-answer">
+                    <p>寻找身体上有明显的黄黑条纹，且行动迅速的蜘蛛。它们通常不在高处的网中，而是栖息在地面、低矮的灌木丛或香蕉叶背面。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">被咬伤后应该做什么？</div>
+                <div class="faq-answer">
+                    <p>首先保持冷静，用肥皂和水清洗伤口。不要使用冰敷或切开伤口。记录下蜘蛛的外观特征（如果可能），并立即寻求医疗帮助。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于香蕉蜘蛛</h4>
+                    <p style="font-size: 0.9rem; color: #bdc3c7;">致力于提供最准确、科学的生物科普信息，帮助公众正确认识自然界的生物多样性。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#features">形态特征</a></li>
+                        <li><a href="#safety">安全指南</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">游走蛛科图鉴</a></li>
+                        <li><a href="#">农业害虫防治</a></li>
+                        <li><a href="#">野外生存指南</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 香蕉蜘蛛百科指南. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他已打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
