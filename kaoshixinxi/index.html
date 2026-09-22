@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考试信息-权威考试政策发布与备考资源平台</title>
+    <meta name="description" content="本站提供最新的全国考试信息发布，涵盖公务员、教师资格、职业资格、考研及各类职业技能考试。包括报名时间、考试时间、报名入口、考试大纲、历年真题及备考指南。">
+    <meta name="keywords" content="考试信息,公务员考试,教师资格证,考研,职业资格,报名入口,考试大纲">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .search-bar {
+            display: flex;
+            background: var(--bg-color);
+            border-radius: 4px;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            padding: 0.25rem;
+            outline: none;
+            width: 150px;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Main Layout */
+        .main-container {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Content Sections */
+        .section-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-more {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Cards Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 160px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            background-color: #eef6fc;
+            color: var(--accent-color);
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-active { background-color: #27ae60; }
+        .status-warning { background-color: #f39c12; }
+        .status-urgent { background-color: #e74c3c; }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .widget-list li:last-child {
+            border-bottom: none;
+        }
+
+        .widget-list a {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .widget-list span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .hot-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .hot-list a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .hot-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Banner Ad Placeholder */
+        .ad-banner {
+            width: 100%;
+            height: 250px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .guide-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .step {
+            flex: 1 1 200px;
+            text-align: center;
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #eef6fc;
+            color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .step h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span>考</span>试通
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">公务员</a></li>
+                    <li><a href="#">事业单位</a></li>
+                    <li><a href="#">教师招聘</a></li>
+                    <li><a href="#">资格证</a></li>
+                    <li><a href="#">考研</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索考试名称...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="date-badge">当前时间：2023年10月</span>
+            <h1>一站式考试信息服务平台</h1>
+            <p>及时发布全国各类考试公告、报名入口及备考资料，助您轻松应对每一次挑战。</p>
+        </div>
+    </section>
+
+    <main class="main-container">
+        <!-- Left Content -->
+        <div class="content-area">
+            
+            <section>
+                <div class="section-title">
+                    <h2>近期热门考试</h2>
+                    <a href="#" class="section-more">查看全部 ></a>
+                </div>
+                <div class="card-grid">
+                    <!-- Card 1 -->
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/exam1/400/250" alt="2024年国考公告" class="card-img">
+                        <div class="card-body">
+                            <span class="card-tag">公务员</span>
+                            <h3 class="card-title"><a href="#">2024年度中央机关及其直属机构考试录用公务员公告</a></h3>
+                            <div class="card-meta">
+                                <span class="status-dot status-active"></span>
+                                <span>报名中</span>
+                                <span>截止：2023年10月24日</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 2 -->
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/exam2/400/250" alt="教资考试" class="card-img">
+                        <div class="card-body">
+                            <span class="card-tag">教师资格</span>
+                            <h3 class="card-title"><a href="#">2023年下半年中小学教师资格考试公告</a></h3>
+                            <div class="card-meta">
+                                <span class="status-dot status-warning"></span>
+                                <span>即将开始</span>
+                                <span>笔试时间：11月11日</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Card 3 -->
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/exam3/400/250" alt="软考" class="card-img">
+                        <div class="card-body">
+                            <span class="card-tag">职业资格</span>
+                            <h3 class="card-title"><a href="#">2023年下半年计算机技术与软件专业技术资格（水平）考试</a></h3>
+                            <div class="card-meta">
+                                <span class="status-dot status-active"></span>
+                                <span>报名中</span>
+                                <span>截止：10月25日</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h2>考试政策解读与指南</h2>
+                </div>
+                <div class="guide-section">
+                    <h3>考生备考全流程指南</h3>
+                    <p style="margin-top: 0.5rem; color: var(--text-secondary);">了解从报名到出分的每一个关键环节，确保备考不遗漏。</p>
+                    <div class="guide-steps">
+                        <div class="step">
+                            <div class="step-icon">1</div>
+                            <h4>关注公告</h4>
+                            <p style="font-size: 0.9rem;">密切关注官网发布的最新招考公告，确认岗位要求。</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">2</div>
+                            <h4>网上报名</h4>
+                            <p style="font-size: 0.9rem;">在规定时间内完成注册与信息填报，注意照片审核。</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">3</div>
+                            <h4>打印准考证</h4>
+                            <p style="font-size: 0.9rem;">考前一周登录系统下载打印准考证，仔细核对信息。</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">4</div>
+                            <h4>成绩查询</h4>
+                            <p style="font-size: 0.9rem;">考试结束后登录官网查询成绩，及时准备面试或调剂。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title">
+                    <h2>最新考试资讯</h2>
+                </div>
+                <div class="card-grid" style="grid-template-columns: 1fr;">
+                    <article class="card" style="display: flex; flex-direction: row; height: auto; padding: 1rem;">
+                        <img src="https://picsum.photos/seed/news1/100/100" alt="新闻缩略图" style="width: 120px; height: 120px; object-fit: cover; border-radius: 4px;">
+                        <div style="padding-left: 1rem; display: flex; flex-direction: column; justify-content: center;">
+                            <span class="card-tag">政策</span>
+                            <h3 class="card-title" style="font-size: 1rem; margin: 0.5rem 0;"><a href="#">多地调整事业单位招聘时间，请考生注意</a></h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary);">为配合当地防疫工作，部分省份推迟了事业单位公开招聘考试时间...</p>
+                        </div>
+                    </article>
+                    <article class="card" style="display: flex; flex-direction: row; height: auto; padding: 1rem;">
+                        <img src="https://picsum.photos/seed/news2/100/100" alt="新闻缩略图" style="width: 120px; height: 120px; object-fit: cover; border-radius: 4px;">
+                        <div style="padding-left: 1rem; display: flex; flex-direction: column; justify-content: center;">
+                            <span class="card-tag">动态</span>
+                            <h3 class="card-title" style="font-size: 1rem; margin: 0.5rem 0;"><a href="#">2024年研究生招生考试初试科目调整通知</a></h3>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary);">教育部发布最新通知，多所高校调整了部分专业的研究生初试科目...</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Sidebar -->
+        <aside>
+            <div class="sidebar-widget">
+                <h3>热门考试分类</h3>
+                <ul class="widget-list" style="margin-top: 1rem;">
+                    <li><a href="#">公务员考试 <span>></span></a></li>
+                    <li><a href="#">事业单位 <span>></span></a></li>
+                    <li><a href="#">教师招聘 <span>></span></a></li>
+                    <li><a href="#">教师资格证 <span>></span></a></li>
+                    <li><a href="#">研究生考试 <span>></span></a></li>
+                    <li><a href="#">军队文职 <span>></span></a></li>
+                    <li><a href="#">三支一扶 <span>></span></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>本月报名提醒</h3>
+                <ul class="hot-list" style="margin-top: 1rem;">
+                    <li><a href="#">2024年国考报名入口开通</a></li>
+                    <li><a href="#">全国计算机等级考试报名通知</a></li>
+                    <li><a href="#">2023年法考客观题考试公告</a></li>
+                    <li><a href="#">2024上半年翻译资格考试</a></li>
+                </ul>
+            </div>
+
+            <div class="ad-banner">
+                广告位：备考资料包下载
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>常见问题 (FAQ)</h3>
+                <div style="margin-top: 1rem;">
+                    <details style="margin-bottom: 0.8rem; cursor: pointer;">
+                        <summary style="font-weight: 500; font-size: 0.95rem;">报名照片有什么要求？</summary>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 0.3rem;">通常要求为白底或蓝底证件照，像素不低于295x413，格式为JPG或JPEG。</p>
+                    </details>
+                    <details style="margin-bottom: 0.8rem; cursor: pointer;">
+                        <summary style="font-weight: 500; font-size: 0.95rem;">忘记报名密码怎么办？</summary>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 0.3rem;">通常可以通过绑定的手机号或邮箱进行密码重置，具体以各报名系统提示为准。</p>
+                    </details>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>关于我们</h3>
+                <p style="font-size: 0.9rem; line-height: 1.6;">本站致力于为广大学子提供最准确、及时的考试信息发布服务。我们整合全国各省市招考信息，帮助考生快速定位目标，顺利通过考试。</p>
+            </div>
+            <div class="footer-col">
+                <h3>快速导航</h3>
+                <ul>
+                    <li><a href="#">国考公告</a></li>
+                    <li><a href="#">省考公告</a></li>
+                    <li><a href="#">考研日程</a></li>
+                    <li><a href="#">教师招聘</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>帮助中心</h3>
+                <ul>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系站长</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>关注我们</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">扫描二维码获取最新资讯</p>
+                <div style="width: 100px; height: 100px; background: white; display: flex; align-items: center; justify-content: center; color: #333; font-size: 0.8rem;">二维码占位</div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 考试信息服务平台 版权所有 | 仅供演示使用</p>
+        </div>
+    </footer>
+
+</body>
+</html>
