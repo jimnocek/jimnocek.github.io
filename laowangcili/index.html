@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老王磁力搜索 - 高速资源聚合与种子索引平台</title>
+    <meta name="description" content="老王磁力搜索提供全网电影、电视剧、动漫、软件、游戏等资源的磁力链接聚合服务。支持模糊搜索、分类筛选、高速下载，助您快速找到所需的BT种子资源。">
+    <meta name="keywords" content="老王磁力搜索,磁力搜索,磁力链接,种子搜索,资源下载,高清影视,软件下载">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e50914;
+            --primary-hover: #b20710;
+            --bg-color: #141414;
+            --card-bg: #1f1f1f;
+            --text-main: #ffffff;
+            --text-secondary: #b3b3b3;
+            --border-color: #333;
+            --accent-green: #46d369;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 24px;
+            }
+            .nav-links a {
+                color: var(--text-secondary);
+                font-size: 14px;
+            }
+            .nav-links a:hover {
+                color: var(--text-main);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(20,20,20,1) 100%), url('https://picsum.photos/seed/digital/1920/600') center/cover;
+            padding: 60px var(--spacing-unit);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Search Box */
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-form {
+            display: flex;
+            background: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 32px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-weight: 600;
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 40px var(--spacing-unit);
+        }
+
+        /* Categories */
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 600px) {
+            .category-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .category-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+        }
+
+        .category-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .category-name {
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        /* Resource List */
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .resource-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .resource-item {
+                flex-direction: row;
+                align-items: center;
+                padding: 20px;
+            }
+        }
+
+        .resource-thumb {
+            width: 100%;
+            height: 120px;
+            background-color: #000;
+            object-fit: cover;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .resource-thumb {
+                width: 160px;
+                height: 90px;
+            }
+        }
+
+        .resource-info {
+            flex: 1;
+        }
+
+        .resource-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .resource-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            background-color: rgba(255,255,255,0.1);
+            padding: 2px 8px;
+            border-radius: 2px;
+            font-size: 12px;
+        }
+
+        .badge.hot {
+            background-color: rgba(229, 9, 20, 0.2);
+            color: #ff4d4d;
+        }
+
+        .resource-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
+        }
+
+        .size-info {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-left: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            border-top: 1px solid var(--border-color);
+            padding: 40px var(--spacing-unit);
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .footer-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            color: var(--text-main);
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>老王磁力搜索</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">最新收录</a>
+            <a href="#">热门榜单</a>
+            <a href="#">高级搜索</a>
+            <a href="#">帮助中心</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>全网资源聚合索引</h1>
+    <p>老王磁力搜索致力于为您提供最全面、最稳定的种子链接服务，涵盖高清影视、热门软件、电子书籍及各类学习资料。</p>
+    <div class="search-container">
+        <form class="search-form" onsubmit="event.preventDefault(); window.location.href='#results'">
+            <input type="text" class="search-input" placeholder="输入关键词搜索电影、电视剧、软件或小说..." aria-label="搜索资源">
+            <button type="submit" class="search-btn">搜索</button>
+        </form>
+    </div>
+</section>
+
+<main>
+    <!-- Categories Section -->
+    <section id="categories">
+        <div class="section-title">资源分类</div>
+        <div class="category-grid">
+            <a href="#" class="category-card">
+                <span class="category-icon">🎬</span>
+                <span class="category-name">高清影视</span>
+            </a>
+            <a href="#" class="category-card">
+                <span class="category-icon">🎮</span>
+                <span class="category-name">游戏资源</span>
+            </a>
+            <a href="#" class="category-card">
+                <span class="category-icon">📚</span>
+                <span class="category-name">电子书籍</span>
+            </a>
+            <a href="#" class="category-card">
+                <span class="category-icon">💻</span>
+                <span class="category-name">软件工具</span>
+            </a>
+            <a href="#" class="category-card">
+                <span class="category-icon">🎵</span>
+                <span class="category-name">音乐专辑</span>
+            </a>
+            <a href="#" class="category-card">
+                <span class="category-icon">📷</span>
+                <span class="category-name">摄影图集</span>
+            </a>
+            <a href="#" class="category-card">
+                <span class="category-icon">🎓</span>
+                <span class="category-name">学术资料</span>
+            </a>
+            <a href="#" class="category-card">
+                <span class="category-icon">🚀</span>
+                <span class="category-name">其他资源</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Latest Resources -->
+    <section id="results">
+        <div class="section-title">
+            <span>最新收录</span>
+            <a href="#" style="font-size: 14px; color: var(--primary-color);">查看更多 &rarr;</a>
+        </div>
+        <div class="resource-list">
+            <!-- Item 1 -->
+            <article class="resource-item">
+                <img src="https://picsum.photos/seed/movie1/300/200" alt="封面图" class="resource-thumb">
+                <div class="resource-info">
+                    <h2 class="resource-title"><a href="#">奥本海默 2023 4K HDR 蓝光原盘 BT下载</a></h2>
+                    <div class="resource-meta">
+                        <span class="badge">电影</span>
+                        <span class="badge hot">热榜</span>
+                        <span>更新至: 第1集</span>
+                        <span>发布时间: 2023-08-01</span>
+                    </div>
+                    <p style="font-size: 14px; color: #888; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">克里斯托弗·诺兰执导的传记电影，讲述了美国“原子弹之父”罗伯特·奥本海默主导曼哈顿计划的故事。本资源为1080P高清版，含中英双字。</p>
+                </div>
+                <div class="resource-actions">
+                    <button class="btn btn-primary" onclick="alert('请复制下方磁力链接到迅雷或BT下载器中打开')">获取磁力</button>
+                    <span class="size-info">24.5 GB</span>
+                </div>
+            </article>
+
+            <!-- Item 2 -->
+            <article class="resource-item">
+                <img src="https://picsum.photos/seed/soft1/300/200" alt="封面图" class="resource-thumb">
+                <div class="resource-info">
+                    <h2 class="resource-title"><a href="#">Adobe 2024 全家桶 破解版 Win/Mac 一键安装</a></h2>
+                    <div class="resource-meta">
+                        <span class="badge">软件</span>
+                        <span>版本: v2024.0</span>
+                        <span>大小: 15.2 GB</span>
+                    </div>
+                    <p style="font-size: 14px; color: #888; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">包含Photoshop, Illustrator, Premiere Pro, After Effects等主流设计软件。内置最新激活工具，无需联网即可使用。</p>
+                </div>
+                <div class="resource-actions">
+                    <button class="btn btn-primary" onclick="alert('请复制下方磁力链接到迅雷或BT下载器中打开')">获取磁力</button>
+                    <span class="size-info">15.2 GB</span>
+                </div>
+            </article>
+
+            <!-- Item 3 -->
+            <article class="resource-item">
+                <img src="https://picsum.photos/seed/game1/300/200" alt="封面图" class="resource-thumb">
+                <div class="resource-info">
+                    <h2 class="resource-title"><a href="#">赛博朋克 2077：往日之影 DLC 全量整合包</a></h2>
+                    <div class="resource-meta">
+                        <span class="badge">游戏</span>
+                        <span class="badge">DLC</span>
+                        <span>支持: PC/PS5</span>
+                    </div>
+                    <p style="font-size: 14px; color: #888; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">包含本体及所有官方DLC，整合了最新的1.6版本补丁，解决存档不兼容问题，直接游玩体验完整故事。</p>
+                </div>
+                <div class="resource-actions">
+                    <button class="btn btn-primary" onclick="alert('请复制下方磁力链接到迅雷或BT下载器中打开')">获取磁力</button>
+                    <span class="size-info">85.0 GB</span>
+                </div>
+            </article>
+
+            <!-- Item 4 -->
+            <article class="resource-item">
+                <img src="https://picsum.photos/seed/book1/300/200" alt="封面图" class="resource-thumb">
+                <div class="resource-info">
+                    <h2 class="resource-title"><a href="#">JavaScript高级程序设计（第4版）高清扫描版 PDF</a></h2>
+                    <div class="resource-meta">
+                        <span class="badge">书籍</span>
+                        <span>格式: PDF</span>
+                        <span>页数: 800+</span>
+                    </div>
+                    <p style="font-size: 14px; color: #888; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">前端开发必读经典，深入讲解JS核心概念、DOM操作、BOM以及ES6+新特性，适合进阶学习。</p>
+                </div>
+                <div class="resource-actions">
+                    <button class="btn btn-primary" onclick="alert('请复制下方磁力链接到迅雷或BT下载器中打开')">获取磁力</button>
+                    <span class="size-info">120 MB</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mt-4">
+        <div class="section-title">常见问题 (FAQ)</div>
+        <div style="display: grid; gap: 16px;">
+            <details style="background: var(--card-bg); padding: 16px; border-radius: 4px; border: 1px solid var(--border-color);">
+                <summary style="cursor: pointer; font-weight: 600; list-style: none;">如何使用磁力链接下载资源？</summary>
+                <p style="margin-top: 12px; color: var(--text-secondary); font-size: 14px;">复制搜索结果中的磁力链接，然后打开迅雷、BitComet等下载工具，新建下载任务并粘贴链接即可开始下载。</p>
+            </details>
+            <details style="background: var(--card-bg); padding: 16px; border-radius: 4px; border: 1px solid var(--border-color);">
+                <summary style="cursor: pointer; font-weight: 600; list-style: none;">下载速度慢怎么办？</summary>
+                <p style="margin-top: 12px; color: var(--text-secondary); font-size: 14px;">磁力下载速度取决于其他用户的上传速度，建议在非高峰时段下载，或使用支持P2SP技术的下载工具。</p>
+            </details>
+            <details style="background: var(--card-bg); padding: 16px; border-radius: 4px; border: 1px solid var(--border-color);">
+                <summary style="cursor: pointer; font-weight: 600; list-style: none;">资源是否安全无毒？</summary>
+                <p style="margin-top: 12px; color: var(--text-secondary); font-size: 14px;">我们提供的链接来自互联网公开索引，下载前建议使用杀毒软件进行扫描，确保系统安全。</p>
+            </details>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <div class="footer-logo">老王磁力搜索</div>
+            <p class="footer-desc">专注于提供高质量的资源索引服务，致力于打造最便捷的种子查找平台。所有资源均来自互联网，仅供学习交流使用。</p>
+        </div>
+        <div class="footer-links">
+            <h4>快速导航</h4>
+            <ul>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">免责声明</a></li>
+                <li><a href="#">版权声明</a></li>
+                <li><a href="#">联系合作</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>热门分类</h4>
+            <ul>
+                <li><a href="#">4K高清电影</a></li>
+                <li><a href="#">PS5游戏</a></li>
+                <li><a href="#">设计软件</a></li>
+                <li><a href="#">电子教材</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 老王磁力搜索. All Rights Reserved. 本站不存储任何实际文件，仅提供索引服务。
+    </div>
+</footer>
+
+</body>
+</html>
