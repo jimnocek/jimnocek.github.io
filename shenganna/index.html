@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣安娜-烘焙食谱与家庭烘焙指南</title>
+    <meta name="description" content="圣安娜烘焙指南：提供专业的蛋糕卷、蔓越莓面包等经典配方，从入门到进阶的烘焙教程与工具选购建议。">
+    <meta name="keywords" content="圣安娜, 圣安娜烘焙, 圣安娜蛋糕卷, 蔓越莓面包, 烘焙食谱, 家庭烘焙">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d45b2e;
+            --primary-dark: #b5431b;
+            --secondary-color: #f4e4d0;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f9f8f4;
+            --bg-card: #ffffff;
+            --border-radius: 12px;
+            --spacing-unit: 20px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff0e6 0%, #fff 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(212, 91, 46, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Recipe Section */
+        .recipes {
+            padding: 80px 0;
+        }
+
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .recipe-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s;
+        }
+
+        .recipe-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .recipe-img {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .recipe-img img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s;
+        }
+
+        .recipe-card:hover .recipe-img img {
+            transform: scale(1.05);
+        }
+
+        .recipe-info {
+            padding: 20px;
+        }
+
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .recipe-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .recipe-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .recipe-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .rating {
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+
+        /* Tools/Brand Section */
+        .tools-section {
+            background-color: #fff;
+            padding: 80px 0;
+        }
+
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .tools-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .tools-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .tools-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .check-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .tools-visual {
+            flex: 1;
+            min-width: 300px;
+            background: #fff0e6;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .tools-visual img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: "+";
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c2c2c;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary-color)"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span>圣安娜烘焙</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#recipes" class="active">烘焙食谱</a></li>
+                    <li><a href="#tools">工具选购</a></li>
+                    <li><a href="#guide">新手指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline" onclick="alert('请输入关键词搜索食谱')">搜索</button>
+                <button class="btn btn-primary" onclick="window.scrollTo({top: document.getElementById('recipes').offsetTop, behavior: 'smooth'})">开始烘焙</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>让家充满烘焙的香气</h1>
+                <p>圣安娜烘焙指南，专注于经典蛋糕卷与蔓越莓面包的复刻。无论你是烘焙新手还是进阶达人，都能在这里找到实用的配方与技巧。</p>
+                <div class="hero-tags">
+                    <span class="tag">零失败蛋糕卷</span>
+                    <span class="tag">蔓越莓面包</span>
+                    <span class="tag">奶油霜配方</span>
+                    <span class="tag">烤箱温度控制</span>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 15px;">
+                    <button class="btn btn-primary" onclick="document.getElementById('recipes').scrollIntoView({behavior: 'smooth'})">查看热门食谱</button>
+                    <button class="btn btn-outline" onclick="window.open('#', '_blank')">购买烘焙工具</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎂</div>
+                    <h3>经典复刻</h3>
+                    <p>严选圣安娜烘焙经典配方，还原日式烘焙的细腻口感与松软质地。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🍳</div>
+                    <h3>新手友好</h3>
+                    <p>步骤拆解详细，难点标注清晰，即使是第一次使用烤箱也能轻松上手。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🥣</div>
+                    <h3>精准配比</h3>
+                    <p>基于专业烘焙经验优化比例，确保成品成功率最大化。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>技巧分享</h3>
+                    <p>分享打发、卷制、烘烤等核心环节的专业技巧与避坑指南。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipe List -->
+        <section id="recipes" class="recipes">
+            <div class="container">
+                <h2 class="section-title">热门烘焙食谱</h2>
+                <p class="section-subtitle">基于圣安娜经典口味整理的实用食谱清单</p>
+                
+                <div class="recipe-grid">
+                    <!-- Recipe 1 -->
+                    <article class="recipe-card">
+                        <div class="recipe-img">
+                            <img src="https://picsum.photos/seed/cake1/400/300" alt="圣安娜蛋糕卷">
+                        </div>
+                        <div class="recipe-info">
+                            <div class="recipe-meta">
+                                <span>难度：中等</span>
+                                <span>时间：60分钟</span>
+                            </div>
+                            <h3 class="recipe-title">经典草莓蛋糕卷</h3>
+                            <p class="recipe-desc">使用低筋面粉制作的海绵蛋糕胚，搭配淡奶油与新鲜草莓，口感轻盈，是下午茶的首选。</p>
+                            <div class="recipe-footer">
+                                <div class="rating">★★★★★ (4.9)</div>
+                                <button class="btn btn-outline" style="padding: 5px 15px; font-size: 0.8rem;">查看详情</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Recipe 2 -->
+                    <article class="recipe-card">
+                        <div class="recipe-img">
+                            <img src="https://picsum.photos/seed/bread2/400/300" alt="蔓越莓面包">
+                        </div>
+                        <div class="recipe-info">
+                            <div class="recipe-meta">
+                                <span>难度：简单</span>
+                                <span>时间：45分钟</span>
+                            </div>
+                            <h3 class="recipe-title">蔓越莓吐司面包</h3>
+                            <p class="recipe-desc">利用酵母发酵制作，加入大量蔓越莓干，外皮酥脆，内里柔软香甜。</p>
+                            <div class="recipe-footer">
+                                <div class="rating">★★★★☆ (4.8)</div>
+                                <button class="btn btn-outline" style="padding: 5px 15px; font-size: 0.8rem;">查看详情</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Recipe 3 -->
+                    <article class="recipe-card">
+                        <div class="recipe-img">
+                            <img src="https://picsum.photos/seed/cake3/400/300" alt="巧克力蛋糕卷">
+                        </div>
+                        <div class="recipe-info">
+                            <div class="recipe-meta">
+                                <span>难度：较难</span>
+                                <span>时间：90分钟</span>
+                            </div>
+                            <h3 class="recipe-title">浓郁巧克力蛋糕卷</h3>
+                            <p class="recipe-desc">使用可可粉增加风味，搭配苦甜巧克力甘纳许，适合巧克力爱好者。</p>
+                            <div class="recipe-footer">
+                                <div class="rating">★★★★★ (5.0)</div>
+                                <button class="btn btn-outline" style="padding: 5px 15px; font-size: 0.8rem;">查看详情</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Recipe 4 -->
+                    <article class="recipe-card">
+                        <div class="recipe-img">
+                            <img src="https://picsum.photos/seed/cake4/400/300" alt="原味蛋糕卷">
+                        </div>
+                        <div class="recipe-info">
+                            <div class="recipe-meta">
+                                <span>难度：中等</span>
+                                <span>时间：60分钟</span>
+                            </div>
+                            <h3 class="recipe-title">原味轻乳酪蛋糕卷</h3>
+                            <p class="recipe-desc">入口即化的乳酪口感，奶香浓郁，做法相对简单，适合家庭聚会。</p>
+                            <div class="recipe-footer">
+                                <div class="rating">★★★★☆ (4.7)</div>
+                                <button class="btn btn-outline" style="padding: 5px 15px; font-size: 0.8rem;">查看详情</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Guide -->
+        <section id="tools" class="tools-section">
+            <div class="container tools-container">
+                <div class="tools-content">
+                    <h2>烘焙工具选购指南</h2>
+                    <p>想要做出完美的圣安娜风格烘焙，合适的工具是关键。我们整理了新手入门必备的烘焙器具清单，帮助您省心选购。</p>
+                    <ul class="check-list">
+                        <li>电子秤：烘焙最忌凭感觉，精准称重是成功的第一步。</li>
+                        <li>硅胶刮刀：用于翻拌面糊，避免消泡。</li>
+                        <li>电动打蛋器：快速打发蛋白与黄油，节省时间。</li>
+                        <li>烤盘与油纸：选择不粘性能好的烤盘，方便脱模。</li>
+                        <li>裱花袋与花嘴：制作装饰奶油霜时的必备工具。</li>
+                    </ul>
+                    <button class="btn btn-primary" style="margin-top: 20px;">查看工具推荐</button>
+                </div>
+                <div class="tools-visual">
+                    <img src="https://picsum.photos/seed/bakingtools/500/350" alt="烘焙工具展示">
+                    <p style="font-size: 0.9rem; color: #666;">专业的工具能让烘焙过程事半功倍</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">新手常见问题</h2>
+                <div class="faq-grid">
+                    <div class="faq-item active">
+                        <div class="faq-question">新手第一次做蛋糕卷，成功率低怎么办？</div>
+                        <div class="faq-answer">新手建议从基础配方开始，注意蛋白打发程度（干性发泡），面糊翻拌要轻柔避免消泡，烘烤温度和时间建议参考烤箱说明书，宁少勿多。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">圣安娜蔓越莓面包的馅料可以替换吗？</div>
+                        <div class="faq-answer">当然可以。除了经典的蔓越莓干，还可以尝试加入蓝莓干、葡萄干或者切碎的坚果，根据个人口味调整甜度。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">蛋糕卷卷裂了是什么原因？</div>
+                        <div class="faq-answer">卷裂通常是因为蛋糕体太厚、卷得太急或者冷却不够就卷。建议蛋糕出炉后稍微冷却，铺平奶油后用油纸辅助卷起，动作要轻柔。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何保存做好的蛋糕卷？</div>
+                        <div class="faq-answer">蛋糕卷最好在制作当天食用以保持最佳口感。如需保存，请密封放入冰箱冷藏，一般可保存2-3天，食用前稍微回温口感更佳。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于圣安娜烘焙</h4>
+                    <p style="font-size: 0.9rem; color: #999;">致力于传播家庭烘焙文化，分享经典食谱与技巧，让更多人享受烘焙带来的乐趣。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#recipes">烘焙食谱</a></li>
+                        <li><a href="#tools">工具推荐</a></li>
+                        <li><a href="#guide">新手入门</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">食谱分类</a></li>
+                        <li><a href="#">视频教程</a></li>
+                        <li><a href="#">烘焙社区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱：contact@baking-guide.com</li>
+                        <li>电话：400-123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 圣安娜烘焙指南. All rights reserved. 本网站仅供学习交流使用，非官方网站。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', function() {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
