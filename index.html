@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="爱美乐 - 专注美业数字化管理解决方案，提供智能预约、会员营销、员工排班及数据分析一体化系统。助力美容院、美发店、SPA会所提升运营效率与客户体验。">
+    <meta name="keywords" content="爱美乐, 美业管理系统, 美容院软件, 会员管理, 美容店SaaS">
+    <title>爱美乐 - 智能美业数字化运营管理平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d4365d; /* 玫瑰红，代表美业 */
+            --primary-dark: #b01e42;
+            --secondary-color: #2d3436; /* 深灰，用于文字 */
+            --accent-color: #ffeaa7; /* 淡黄，用于点缀 */
+            --bg-light: #fdfbf7; /* 暖白背景 */
+            --bg-white: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 20px rgba(212, 54, 93, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(212, 54, 93, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 54, 93, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffffff 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            color: var(--text-main);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .card-1 {
+            bottom: 40px;
+            left: -20px;
+        }
+
+        .card-2 {
+            top: 50px;
+            right: -20px;
+            animation-delay: 1.5s;
+        }
+
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            background: #ffeaa7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 0;
+            background-color: var(--bg-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            background: var(--bg-light);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            background: #fff;
+            box-shadow: var(--shadow);
+            border-color: rgba(212, 54, 93, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Pain Points */
+        .pain-points {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .pain-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .pain-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .pain-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .pain-icon {
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .pain-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #ff7675;
+        }
+
+        .pain-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .pain-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .pain-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* Case Study / Industry */
+        .industries {
+            padding: 100px 0;
+            background-color: var(--bg-white);
+        }
+
+        .industry-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 25px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .industry-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+        }
+
+        .industry-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            object-fit: cover;
+        }
+
+        .industry-card h4 {
+            margin-bottom: 10px;
+        }
+
+        .industry-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #fff0f3, #ffffff);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            border: 1px solid #eee;
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .pricing-features {
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background-color: var(--bg-white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 20px 0;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-light);
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .pain-container {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .industry-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .btn {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.22-7.52-3.22 7.52-3.22L6.5 6.5l-3.5 5.5 3.5 5.5z"/>
+                </svg>
+                <span>爱美乐</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#features">功能亮点</a>
+                <a href="#solutions">解决方案</a>
+                <a href="#pricing">价格方案</a>
+                <a href="#faq">帮助中心</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">免费试用</a>
+            </div>
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>美业数字化管理 <br><span>从爱美乐开始</span></h1>
+                <p>专为美容院、美发店、SPA会所打造的SaaS管理系统。智能预约、会员营销、员工排班一站式解决，让经营更轻松，业绩更上一层楼。</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                    <a href="#" class="btn btn-primary">立即免费体验</a>
+                    <a href="#" class="btn btn-outline">观看演示视频</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>5000+</h3>
+                        <p>合作门店</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99.9%</h3>
+                        <p>系统在线率</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4.8分</h3>
+                        <p>用户好评</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- 使用 Picsum 作为占位图，实际使用应替换为系统界面截图 -->
+                <img src="https://picsum.photos/seed/beautyui/600/450" alt="爱美乐系统界面展示">
+                <div class="floating-card card-1">
+                    <div class="icon-box">💰</div>
+                    <div>
+                        <strong>业绩提升 30%</strong>
+                        <div style="font-size: 0.8rem; color: #666;">某连锁店实测数据</div>
+                    </div>
+                </div>
+                <div class="floating-card card-2">
+                    <div class="icon-box">⏰</div>
+                    <div>
+                        <strong>省时 50%</strong>
+                        <div style="font-size: 0.8rem; color: #666;">预约排班自动化</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心功能，全面赋能</h2>
+                <p>全方位的功能模块，覆盖美业经营全流程</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>智能预约系统</h3>
+                    <p>支持微信、电话、前台多渠道预约，自动发送提醒短信，杜绝爽约，合理规划员工工时。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>会员精准营销</h3>
+                    <p>360度会员画像管理，自动计算会员积分、储值余额。支持生日礼券、充值返利等自动化营销活动。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>经营数据报表</h3>
+                    <p>实时查看日/月/年营收报表，多维度分析业绩构成、员工绩效及客户消费趋势，辅助决策。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>移动端掌上经营</h3>
+                    <p>员工端小程序支持随时查看预约、收款、录入业绩，老板端随时随地掌控门店动态。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>美业专用设计</h3>
+                    <p>内置丰富的美业通用项目库、技师库、产品库，开单效率提升，无需从零开始设置。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>数据安全保障</h3>
+                    <p>银行级数据加密存储，定期异地备份，确保您的会员数据和经营信息绝对安全。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="pain-points">
+        <div class="container pain-container">
+            <div class="pain-image">
+                <img src="https://picsum.photos/seed/stress/550/400" alt="美业经营痛点">
+            </div>
+            <div class="pain-content">
+                <div class="section-title" style="text-align: left; margin-bottom: 30px;">
+                    <h2>传统美业经营痛点</h2>
+                    <p>告别繁琐的人工管理，拥抱数字化未来</p>
+                </div>
+                <div class="pain-list">
+                    <div class="pain-item">
+                        <div class="pain-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        </div>
+                        <div class="pain-content">
+                            <h4>预约混乱，客户爽约率高</h4>
+                            <p>电话预约、微信留言记录混乱，无法有效提醒，导致大量时间浪费在空档期。</p>
+                        </div>
+                    </div>
+                    <div class="pain-item">
+                        <div class="pain-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        </div>
+                        <div class="pain-content">
+                            <h4>会员流失，缺乏粘性</h4>
+                            <p>会员资料仅存在纸质或简单表格中，缺乏互动，难以进行精准的二次营销。</p>
+                        </div>
+                    </div>
+                    <div class="pain-item">
+                        <div class="pain-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        </div>
+                        <div class="pain-content">
+                            <h4>业绩不透明，分配不均</h4>
+                            <p>员工业绩统计滞后，私单、漏单现象频发，导致团队士气低落，管理成本高。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="solutions" class="industries">
+        <div class="container">
+            <div class="section-title">
+                <h2>适用行业广泛</h2>
+                <p>无论是哪种美业形态，爱美乐都能完美适配</p>
+            </div>
+            <div class="industry-tabs">
+                <button class="tab-btn active">美容院</button>
+                <button class="tab-btn">美发沙龙</button>
+                <button class="tab-btn">SPA会所</button>
+                <button class="tab-btn">美甲美睫</button>
+                <button class="tab-btn">养生馆</button>
+            </div>
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <img src="https://picsum.photos/seed/spa/100/100" alt="SPA会所">
+                    <h4>SPA会所</h4>
+                    <p>高端会员管理，预约体验服务</p>
+                </div>
+                <div class="industry-card">
+                    <img src="https://picsum.photos/seed/hair/100/100" alt="美发沙龙">
+                    <h4>美发沙龙</h4>
+                    <p>发型师业绩管理，染烫套餐销售</p>
+                </div>
+                <div class="industry-card">
+                    <img src="https://picsum.photos/seed/nails/100/100" alt="美甲美睫">
+                    <h4>美甲美睫</h4>
+                    <p>快速开单，库存管理，预约提醒</p>
+                </div>
+                <div class="industry-card">
+                    <img src="https://picsum.photos/seed/yoga/100/100" alt="养生馆">
+                    <h4>养生馆</h4>
+                    <p>技师排班，疗程管理，健康档案</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>灵活的价格方案</h2>
+                <p>按需选择，无隐形收费</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>基础版</h3>
+                    <div class="price">¥99<span>/月</span></div>
+                    <p>适合小型店铺起步</p>
+                    <ul class="pricing-features">
+                        <li>无限会员档案</li>
+                        <li>基础预约排班</li>
+                        <li>销售报表导出</li>
+                        <li>1个员工账号</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline" style="width: 100%;">选择基础版</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="badge">最受欢迎</div>
+                    <h3>专业版</h3>
+                    <div class="price">¥299<span>/月</span></div>
+                    <p>适合成长型连锁店</p>
+                    <ul class="pricing-features">
+                        <li>包含基础版所有功能</li>
+                        <li>营销活动中心</li>
+                        <li>多门店管理</li>
+                        <li>5个员工账号</li>
+                        <li>专属客服支持</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%;">选择专业版</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>旗舰版</h3>
+                    <div class="price">¥599<span>/月</span></div>
+                    <p>适合大型集团企业</p>
+                    <ul class="pricing-features">
+                        <li>包含专业版所有功能</li>
+                        <li>定制化开发接口</li>
+                        <li>私有化部署支持</li>
+                        <li>无限员工账号</li>
+                        <li>7x24小时专属服务</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline" style="width: 100%;">联系销售</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container faq-container">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <button class="faq-question">爱美乐系统支持手机操作吗？</button>
+                    <div class="faq-answer">
+                        <p>支持。我们提供员工端微信小程序和老板端H5管理页面，支持在手机上进行预约管理、业绩录入和财务查看。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">数据安全有保障吗？</button>
+                    <div class="faq-answer">
+                        <p>非常安全。我们采用银行级数据加密技术，并每天进行自动异地备份，确保您的数据不会丢失。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">支持更换系统或数据迁移吗？</button>
+                    <div class="faq-answer">
+                        <p>支持。我们有专业的数据迁移服务团队，可以帮您将旧系统的会员、项目和订单数据平滑导入爱美乐系统。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">有免费试用期吗？</button>
+                    <div class="faq-answer">
+                        <p>有的，新用户可以享受15天的全功能免费试用，无需绑定信用卡，试用期结束后您可以选择续费或停止使用。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.22-7.52-3.22 7.52-3.22L6.5 6.5l-3.5 5.5 3.5 5.5z"/>
+                        </svg>
+                        爱美乐
+                    </h3>
+                    <p>致力于为中国美业企业提供最专业的数字化管理解决方案，帮助门店提升效率，实现业绩倍增。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="#">预约系统</a></li>
+                        <li><a href="#">会员营销</a></li>
+                        <li><a href="#">员工管理</a></li>
+                        <li><a href="#">数据报表</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>解决方案</h4>
+                    <ul>
+                        <li><a href="#">美容院管理</a></li>
+                        <li><a href="#">美发店经营</a></li>
+                        <li><a href="#">SPA会所</a></li>
+                        <li><a href="#">美甲美睫</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>电话：400-123-4567</li>
+                        <li>邮箱：support@aimele.com</li>
+                        <li>地址：上海市浦东新区科技园</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 爱美乐科技有限公司 版权所有 | 互联网ICP备案号：沪ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 交互逻辑
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = button.nextElementSibling;
+                
+                // 切换当前项状态
+                faqItem.classList.toggle('active');
+                
+                if (faqItem.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = 0;
+                }
+
+                // 可选：关闭其他已打开的项
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = 0;
+                    }
+                });
+            });
+        });
+
+        // 简单的 Tab 切换逻辑
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                // 这里可以添加实际的内容切换逻辑，目前仅做视觉反馈
+            });
+        });
+
+        // 移动端菜单切换
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileBtn.addEventListener('click', () => {
+            const currentDisplay = window.getComputedStyle(navLinks).display;
+            if (currentDisplay === 'none') {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '80px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 10px 10px rgba(0,0,0,0.05)';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        });
+
+        // 滚动时 Header 阴影效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
+</body>
+                      </html>
